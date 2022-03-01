@@ -1,0 +1,20 @@
+version: '3.2'
+
+services:
+    onos:
+      image: onos
+      build: ./onos
+      ports:
+        - '8181:8181'
+        - '8101:8101'
+        - '5005:5005'
+        - '830:830'
+      container_name: onos
+    mininet:
+      privileged: true
+      image: mininet
+      build: ./mininet
+      volumes:
+        - /Users/yanjing/Desktop/mininet:/tmp
+      tty: true
+      container_name: mininet
