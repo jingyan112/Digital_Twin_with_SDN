@@ -1,0 +1,20 @@
+version: '3.2'
+
+services:
+    onos:
+      image: onos_mirror
+      build: ./onos_mirror
+      ports:
+        - '8182:8181'
+        - '8102:8101'
+        - '5006:5005'
+        - '831:830'
+      container_name: onos_mirror
+    mininet:
+      privileged: true
+      image: mininet_mirror
+      build: ./mininet_mirror
+      volumes:
+        - /Users/yanjing/Desktop/mininet:/tmp
+      tty: true
+      container_name: mininet_mirror
